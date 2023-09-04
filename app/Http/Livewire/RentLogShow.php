@@ -34,9 +34,9 @@ class RentLogShow extends Component
         $validatedData = $this->validate();
  
         RentLog::create($validatedData);
-        session()->flash('message','Rent Log Added Successfully');
+        session()->flash('message','Rent Log Berhasil Ditambah!');
         $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->closeModal();
     }
      
     public function editRentLog(int $rentlog_id)
@@ -64,9 +64,9 @@ class RentLogShow extends Component
             'rent_date' => $validatedData['rent_date'],
             'return_date' => $validatedData['return_date']
         ]);
-        session()->flash('message','Rent Log Updated Successfully');
+        session()->flash('message','Rent Log Berhasil Diperbaharui!');
         $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->closeModal();
     }
      
     public function deleteRentLog(int $rentlog_id)
@@ -77,8 +77,8 @@ class RentLogShow extends Component
     public function destroyRentLog()
     {
         RentLog::find($this->rentlog_id)->delete();
-        session()->flash('message','Rent Log Deleted Successfully');
-        $this->dispatchBrowserEvent('close-modal');
+        session()->flash('message','Rent Log Berhasil Dihapus!');
+        $this->closeModal();
     }
  
     public function closeModal()

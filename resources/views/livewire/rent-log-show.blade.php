@@ -11,7 +11,7 @@
                     <div class="card-header">
                         <h4>Rent Log List
                             <input type="search" wire:model="search" class="form-control float-end mx-2" placeholder="Search..." style="width: 230px" />
-                            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#rentlogModal">
+                            <button type="button" class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#rentlogModal">
                                 Add New rentlog
                             </button>
                         </h4>
@@ -37,7 +37,7 @@
                                         <td>{{ $rentlog->rent_date }}</td>
                                         <td>{{ $rentlog->return_date }}</td>
                                         <td>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#updateRentLogModal" wire:click="editRentLog({{$rentlog->id}})" class="btn btn-primary">
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#updateRentLogModal" wire:click="editRentLog({{$rentlog->id}})" class="btn btn-edit">
                                                 Edit
                                             </button>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#deleteRentLogModal" wire:click="deleteRentLog({{$rentlog->id}})" class="btn btn-danger">Delete</button>

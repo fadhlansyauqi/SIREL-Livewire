@@ -11,7 +11,7 @@
                     <div class="card-header">
                         <h4>Customer List
                             <input type="search" wire:model="search" class="form-control float-end mx-2" placeholder="Search..." style="width: 230px" />
-                            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#customerModal">
+                            <button type="button" class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#customerModal">
                                 Add New Customer Data
                             </button>
                         </h4>
@@ -37,7 +37,7 @@
                                         <td>{{ $customer->phone }}</td>
                                         <td>{{ $customer->address }}</td>
                                         <td>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#updateCustomerModal" wire:click="editCustomer({{$customer->id}})" class="btn btn-primary">
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#updateCustomerModal" wire:click="editCustomer({{$customer->id}})" class="btn btn-edit">
                                                 Edit
                                             </button>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#deleteCustomerModal" wire:click="deleteCustomer({{$customer->id}})" class="btn btn-danger">Delete</button>

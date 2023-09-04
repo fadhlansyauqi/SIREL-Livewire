@@ -35,9 +35,9 @@ class CustomerShow extends Component
         $validatedData = $this->validate();
  
         Customer::create($validatedData);
-        session()->flash('message','customer Added Successfully');
+        session()->flash('message','Data Customer Baru Berhasil Ditambah!');
         $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->closeModal();
     }
      
     public function editCustomer(int $customer_id)
@@ -65,9 +65,9 @@ class CustomerShow extends Component
             'phone' => $validatedData['phone'],
             'address' => $validatedData['address']
         ]);
-        session()->flash('message','customer Updated Successfully');
+        session()->flash('message','Data Customer Berhasil Diperbaharui!');
         $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->closeModal();
     }
      
     public function deleteCustomer(int $customer_id)
@@ -78,8 +78,8 @@ class CustomerShow extends Component
     public function destroyCustomer()
     {
         Customer::find($this->customer_id)->delete();
-        session()->flash('message','customer Deleted Successfully');
-        $this->dispatchBrowserEvent('close-modal');
+        session()->flash('message','Data Customer Berhasil Dihapus!');
+        $this->closeModal();
     }
  
     public function closeModal()
@@ -97,7 +97,12 @@ class CustomerShow extends Component
  
     public function render()
     {
-        $customers = Customer::where('name', 'like', '%'.$this->search.'%')->orderBy('id','ASC')->paginate(10);
+        $customers = Customer::where(function ($query) {
+            $query->where('name', 'like', '%' . $this->search . '%')
+                  ->orWhere('email', 'like', '%' . $this->search . '%')
+                  ->orWhere('phone', 'like', '%' . $this->search . '%')
+                  ->orWhere('address', 'like', '%' . $this->search . '%');
+        })->orderBy('id', 'ASC')->paginate(10);
         //$customers = Customer::select('id','name','email','phone','address')->get();
         return view('livewire.customer-show', ['customers' => $customers]);
     }

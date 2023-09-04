@@ -4,7 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="customerModalLabel">Create Customer</h5>
+                <h5 class="modal-title" id="customerModalLabel">Tambahkan Data Customer</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     wire:click="closeModal"></button>
             </div>
@@ -33,8 +33,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
-                        data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                        data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
-                        data-bs-dismiss="modal">Close</button>
+                        data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
@@ -101,8 +101,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
-                        data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Yes! Delete</button>
+                        data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Ya</button>
                 </div>
             </form>
         </div>

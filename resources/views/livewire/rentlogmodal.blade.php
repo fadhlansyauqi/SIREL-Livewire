@@ -4,7 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="rentlogModalLabel">Create RentLog</h5>
+                <h5 class="modal-title" id="rentlogModalLabel">Tambahkan Data Rent Log</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     wire:click="closeModal"></button>
             </div>
@@ -33,8 +33,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
-                        data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                        data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
-                        data-bs-dismiss="modal">Close</button>
+                        data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
@@ -97,12 +97,12 @@
             </div>
             <form wire:submit.prevent="destroyRentLog">
                 <div class="modal-body">
-                    <h4>Are you sure you want to delete this data ?</h4>
+                    <h4>Yakin ingin menghapus data?</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
-                        data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Yes! Delete</button>
+                        data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Ya</button>
                 </div>
             </form>
         </div>

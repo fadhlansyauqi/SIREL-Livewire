@@ -64,7 +64,7 @@ class LaptopShow extends Component
         ]);
         session()->flash('message','laptop Updated Successfully');
         $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->closeModal();
     }
      
     public function deleteLaptop(int $laptop_id)
@@ -76,7 +76,7 @@ class LaptopShow extends Component
     {
         Laptop::find($this->laptop_id)->delete();
         session()->flash('message','laptop Deleted Successfully');
-        $this->dispatchBrowserEvent('close-modal');
+        $this->closeModal();
     }
  
     public function closeModal()
