@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\WithPagination;
 use App\Models\Laptop;
 use Livewire\Component;
@@ -9,6 +10,7 @@ use Livewire\Component;
 class LaptopShow extends Component
 {
     use WithPagination;
+    use LivewireAlert;
  
     protected $paginationTheme = 'bootstrap';
  
@@ -34,7 +36,7 @@ class LaptopShow extends Component
         $validatedData = $this->validate();
  
         Laptop::create($validatedData);
-        session()->flash('message','laptop Added Successfully');
+        $this->alert('success', 'Success is approaching!');
         $this->resetInput();
         $this->closeModal();
     }
@@ -62,7 +64,7 @@ class LaptopShow extends Component
             'name' => $validatedData['name'],
             'category' => $validatedData['category']
         ]);
-        session()->flash('message','laptop Updated Successfully');
+        $this->alert('success', 'Success is approaching!');
         $this->resetInput();
         $this->closeModal();
     }
@@ -75,7 +77,7 @@ class LaptopShow extends Component
     public function destroyLaptop()
     {
         Laptop::find($this->laptop_id)->delete();
-        session()->flash('message','laptop Deleted Successfully');
+        $this->alert('success', 'Success is approaching!');
         $this->closeModal();
     }
  
@@ -99,7 +101,8 @@ class LaptopShow extends Component
                   ->orWhere('name', 'like', '%' . $this->search . '%')
                   ->orWhere('category', 'like', '%' . $this->search . '%');
         })->orderBy('id', 'ASC')->paginate(10);
+        $currentPage = $laptops->currentPage(); 
         //$laptops = laptop::select('id','code','name','category')->get();
-        return view('livewire.laptop-show', ['laptops' => $laptops]);
+        return view('livewire.laptop-show', ['laptops' => $laptops, 'currentPage' => $currentPage]);
     }
 }

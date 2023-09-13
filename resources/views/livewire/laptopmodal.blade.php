@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     wire:click="closeModal"></button>
             </div>
-            <form wire:submit.prevent="saveLaptop">
+            <form >
                 <div class="modal-body">
                     <div class="mb-3">
                         <label>Laptop Code</label>
@@ -29,7 +29,14 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
                         data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" wire:click="saveLaptop" class="btn btn-primary" wire:loading.attr="disabled">
+                        <div wire:loading>
+                            <div class="spinner-border spinner-border-sm" role="status">
+                               
+                              </div>
+                        </div>
+                        Simpan
+                    </button>
                 </div>
             </form>
         </div>

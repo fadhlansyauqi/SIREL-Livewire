@@ -8,7 +8,7 @@
  
 @endsection
  
-@section('script')
+@push('script')
 <script>
     window.addEventListener('close-modal', event => {
  
@@ -17,4 +17,4 @@
         $('#deleteLaptopModal').modal('hide');
     })
 </script>
-@endsection
+@endpush

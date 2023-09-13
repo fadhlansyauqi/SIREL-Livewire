@@ -18,9 +18,9 @@ class CustomerShow extends Component
     protected function rules()
     {
         return [
-            'name' => 'required|string',
-            'email' => ['required','email'],
-            'phone' => 'required',
+            'name'    => 'required|string',
+            'email'   => ['required','email'],
+            'phone'   => 'required',
             'address' => 'required|string',
         ];
     }

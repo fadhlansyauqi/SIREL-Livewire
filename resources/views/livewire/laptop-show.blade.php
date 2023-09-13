@@ -3,9 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                @if (session()->has('message'))
-                    <h5 class="alert alert-success">{{ session('message') }}</h5>
-                @endif
+                
  
                 <div class="card">
                     <div class="card-header">
@@ -28,9 +26,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $num = ($laptops->currentPage()-1) * $laptops->perPage()+1; 
+                                @endphp
                                 @forelse ($laptops as $laptop)
                                     <tr>
-                                        <td>{{ $laptop->id }}</td>
+                                        <td>{{ $num++ }}</td>
                                         <td>{{ $laptop->code }}</td>
                                         <td>{{ $laptop->name }}</td>
                                         <td>{{ $laptop->category }}</td>
@@ -58,3 +59,4 @@
     </div>
  
 </div> 
+
